@@ -26,11 +26,7 @@ module.exports = async context => {
     for (let entry of context.params.entry) {
       let webhookEvent = entry.messaging[0];
       let senderPSID = webhookEvent.sender.id;
-    //  let options = await lib.utils.storage.get(KEY(senderPSID));
-  //    options = options || new Conversation().export();
-  //    let conversation = new Conversation(options);
 
-    //  let message = handleText(webhookEvent.message.text);      //
       let [message] =
         webhookEvent.message && webhookEvent.message.quick_reply && webhookEvent.message.quick_reply.payload
           ? handlePayload(webhookEvent.message.quick_reply.payload)
@@ -70,18 +66,14 @@ function handleText(text) {
         }
       ]
     }
-  ];
-    //new Game()
-    //];
+   ];
   }
 
   return[
-      {
+    {
       text: 'what?'
     }
   ];
-
-    //game;
 }
 
 function handlePayload(payload) {
